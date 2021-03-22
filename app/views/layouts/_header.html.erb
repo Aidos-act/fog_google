@@ -1,0 +1,14 @@
+<header>
+
+	<td><%= link_to 'Home' , root_path %></td>
+	
+	<% if user_signed_in? %>
+		<% if current_user.admin? %>
+			<td><%= link_to 'New Post' , new_post_path %></td>
+		<% end %>
+		<td><%= link_to 'Sign out' , destroy_user_session_path , method: :delete%></td>
+	<% else %>
+		<td><%= link_to 'Sign up', new_user_registration_path %></td>
+	<% end %>
+
+</header>
